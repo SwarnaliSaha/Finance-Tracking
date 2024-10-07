@@ -1,0 +1,17 @@
+import { IRole } from "./role.type";
+import { BaseSchema } from "../../utility/base-schema";
+import { model } from "mongoose";
+
+const RoleSchema = new BaseSchema(
+    {
+        name : {
+            type : String,
+            required : true,
+            unique : true
+        }
+    }
+)
+
+type RoleDocument = Document & IRole;
+
+export const RoleModel = model<RoleDocument>("Roles",RoleSchema)
