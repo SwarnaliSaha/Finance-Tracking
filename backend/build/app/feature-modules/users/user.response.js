@@ -4,7 +4,7 @@ exports.user_responses = void 0;
 exports.user_responses = {
     user_created: {
         statusCode: 200,
-        message: "user is crested successfully"
+        message: "user is created successfully"
     },
     user_not_created: {
         statusCode: 400,
@@ -29,13 +29,5 @@ exports.user_responses = {
     user_not_found: {
         statusCode: 404,
         message: "user NOT FOUND"
-    },
-    moderator_access_given: {
-        statusCode: 200,
-        message: "User is given the modertor access successfully"
-    },
-    moderator_access_not_given: {
-        statusCode: 200,
-        message: "Sorry ! Moderator access is already given."
     }
 };

@@ -4,6 +4,16 @@ import { Router,Request,Response,NextFunction } from "express";
 
 const router = Router()
 
+router.post('/',async(req:Request,res:Response,next:NextFunction)=>{
+    try {
+        const result = await userService.createUser(req.body);
+        res.send(new ResponseHandler(result));
+    } 
+    catch (error) {
+        next(error)
+    }
+})
+
 router.get("/",async(req:Request,res:Response,next:NextFunction)=>{
     try {
         const query = req.query;

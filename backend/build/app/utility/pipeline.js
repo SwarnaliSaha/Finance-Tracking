@@ -47,7 +47,6 @@ const createPipeline = (query) => {
             $limit: Number(limit)
         });
     }
-    console.log(pipeline);
     return pipeline;
 };
 exports.createPipeline = createPipeline;

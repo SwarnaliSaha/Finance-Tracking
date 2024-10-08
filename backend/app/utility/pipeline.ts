@@ -1,6 +1,5 @@
 export const createPipeline = (query : any) => {
     const pipeline = [];
-
     const {page,limit = 2,sort,sortDirection,fields,...queryObj} = query;
 
     if(queryObj){
@@ -48,7 +47,6 @@ export const createPipeline = (query : any) => {
         )
     }
 
-    console.log(pipeline);
     return pipeline;
 
 }

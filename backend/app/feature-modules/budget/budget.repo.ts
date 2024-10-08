@@ -2,7 +2,7 @@ import { IBudget } from "./budget.type";
 import { BudgetModel } from "./budget.schema";
 import { FilterQuery,UpdateQuery } from "mongoose";
 
-const create = (budget : IBudget) => BudgetModel.create(budget);
+const create = async(budget : IBudget) => await BudgetModel.create(budget);
 
 const updateOne = async(filter : FilterQuery<IBudget>,update:UpdateQuery<IBudget>)=>{
     return await BudgetModel.updateOne(filter,update)

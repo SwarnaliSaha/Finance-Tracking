@@ -74,7 +74,7 @@ const updateCategory = (categorytId, categoryObject = {}) => __awaiter(void 0, v
 });
 const deleteCategory = (categoryId) => __awaiter(void 0, void 0, void 0, function* () {
     const deletedObject = yield category_repo_1.default.updateOne({
-        _id: categoryId,
+        _id: new mongoose_1.Types.ObjectId(categoryId),
     }, {
         $set: {
             isDeleted: true,

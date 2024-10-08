@@ -11,7 +11,7 @@ const BudgetSchema = new BaseSchema({
     },
     userId : {
         type : Schema.Types.ObjectId,
-        ref : "Roles",
+        ref : "User",
         required : true
     },
     categoryId : {

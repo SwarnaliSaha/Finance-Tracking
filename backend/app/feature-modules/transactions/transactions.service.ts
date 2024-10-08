@@ -36,6 +36,8 @@ const viewAllTransactions = async (query: any) => {
 
   aggregate.push(...pipeline);
 
+  console.log(aggregate)
+
   const result = await transactionsRepo.find(aggregate);
 
   if (!result) throw TRANSACTIONS_RESPONSE.TRANSACTION_NOT_FOUND;

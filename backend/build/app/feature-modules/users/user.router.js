@@ -16,6 +16,15 @@ const user_service_1 = __importDefault(require("./user.service"));
 const response_handler_1 = require("../../utility/response-handler");
 const express_1 = require("express");
 const router = (0, express_1.Router)();
+router.post('/', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield user_service_1.default.createUser(req.body);
+        res.send(new response_handler_1.ResponseHandler(result));
+    }
+    catch (error) {
+        next(error);
+    }
+}));
 router.get("/", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const query = req.query;

@@ -7,8 +7,8 @@ export interface IBudget {
     userId : ObjectId,
     categoryId : ObjectId,
     allocatedAmount : number,
-    startDate : string,
-    endDate ?: string,
+    startDate : Date,
+    endDate ?: Date,
     amountSpent : number,
     overRun : boolean
 }

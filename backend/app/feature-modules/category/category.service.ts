@@ -66,7 +66,7 @@ const updateCategory = async (
 const deleteCategory = async (categoryId: string) => {
   const deletedObject = await categoryRepo.updateOne(
     {
-      _id: categoryId,
+      _id: new Types.ObjectId(categoryId),
     },
     {
       $set: {

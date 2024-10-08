@@ -5,10 +5,10 @@ import { FilterQuery,UpdateQuery,Types } from "mongoose";
 import { createPipeline } from "../../utility/pipeline";
 
 const createUser = async(user : IUser)=>{
-    const record = await userRepo.create(user);
+    const record = userRepo.create(user);
 
     if(!user) throw user_responses.user_not_created;
-
+    console.log(user_responses.user_created)
     return user_responses.user_created
 }
 
@@ -49,24 +49,26 @@ const findUser = async(filter : Partial<IUser>)=>{
 }
 
 const viewAllUsers = async(query : any)=>{
-    const {_id,filter} = query;
+    const { id, ...filter } = query;
 
-    const pipeline = createPipeline(filter);
-    const aggregate = []
+  const pipeline = createPipeline(filter);
 
-    if(_id){
-        aggregate.push({
-            $match : {
-                _id : new Types.ObjectId(_id)
-            }
-        })
-    }
+  const aggregate = [];
 
-    aggregate.push(...pipeline)
+  if (id) {
+    aggregate.push({
+      $match: {
+        _id: new Types.ObjectId(id),
+      },
+    });
+  }
 
-    const result = userRepo.find(aggregate);
+  aggregate.push(...pipeline);
 
-    return result;
+  const result = await userRepo.find(aggregate);
+
+  if (!result) throw user_responses.user_not_found
+  else return result;
 }
 
 export default {

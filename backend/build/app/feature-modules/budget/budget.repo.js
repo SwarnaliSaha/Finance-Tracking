@@ -9,15 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const user_schema_1 = require("./user.schema");
-const create = (user) => user_schema_1.UserModel.create(user);
+const budget_schema_1 = require("./budget.schema");
+const create = (budget) => __awaiter(void 0, void 0, void 0, function* () { return yield budget_schema_1.BudgetModel.create(budget); });
 const updateOne = (filter, update) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield user_schema_1.UserModel.updateOne(filter, update);
+    return yield budget_schema_1.BudgetModel.updateOne(filter, update);
 });
 const findOne = (filter) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield user_schema_1.UserModel.findOne(Object.assign(Object.assign({}, filter), { isDeleted: false }));
+    return yield budget_schema_1.BudgetModel.findOne(Object.assign(Object.assign({}, filter), { isDeleted: false }));
 });
-const find = (pipeline) => __awaiter(void 0, void 0, void 0, function* () { return yield user_schema_1.UserModel.aggregate(pipeline); });
+const find = (pipeline) => budget_schema_1.BudgetModel.aggregate(pipeline);
 exports.default = {
     create,
     updateOne,

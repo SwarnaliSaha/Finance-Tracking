@@ -52,6 +52,7 @@ const viewAllTransactions = (query) => __awaiter(void 0, void 0, void 0, functio
         });
     }
     aggregate.push(...pipeline);
+    console.log(aggregate);
     const result = yield transactions_repo_1.default.find(aggregate);
     if (!result)
         throw transactions_response_1.TRANSACTIONS_RESPONSE.TRANSACTION_NOT_FOUND;

@@ -1,7 +1,7 @@
 export const user_responses = {
     user_created : {
         statusCode:200,
-        message:"user is crested successfully"
+        message:"user is created successfully"
     },
     user_not_created : {
         statusCode:400,

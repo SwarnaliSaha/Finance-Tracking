@@ -15,7 +15,7 @@ const findOne = async(filter : Partial<IUser>)=>{
     })
 }
 
-const find = (pipeline :any) => UserModel.aggregate(pipeline)
+const find = async(pipeline :any) =>await UserModel.aggregate(pipeline)
 
 
 export default {
